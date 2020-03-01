@@ -54,9 +54,15 @@ class AppFixtures extends Fixture
                     ],
                 ],
             ],
-            'verbe'
+            'verbe' => [
+                'знать' => [
+                    'traductions' => [
+                        'savoir',
+                        'connaître',
+                    ]
+                ]
+            ]
         ];
-
 
         foreach ($types as $name => $words) {
 
@@ -77,13 +83,11 @@ class AppFixtures extends Fixture
                                     if (is_string($tradKey)) {
                                         $traduction->setSpelling($tradKey);
                                         $traduction->setDescription($tradValue);
-                                        $word->addTraduction($traduction);
-                                        $manager->persist($traduction);
                                     } else {
                                         $traduction->setSpelling($tradValue);
-                                        $word->addTraduction($traduction);
-                                        $manager->persist($traduction);
                                     }
+                                    $word->addTraduction($traduction);
+                                    $manager->persist($traduction);
                                 }
                             }
                         }

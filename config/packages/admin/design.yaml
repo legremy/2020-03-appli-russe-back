@@ -1,6 +1,6 @@
 easy_admin:
     design:
-        brand_color: '#abc'
+        brand_color: '#ff0000'
         #assets:
         #    # all kinds of assets are supported and linked accordingly
         #    css:

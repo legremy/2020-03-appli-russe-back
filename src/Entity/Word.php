@@ -5,9 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WordRepository")
+ * @ApiResource
  */
 class Word
 {
@@ -30,7 +32,7 @@ class Word
     private $type;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Traduction", mappedBy="words")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Traduction", inversedBy="words")
      */
     private $traductions;
 

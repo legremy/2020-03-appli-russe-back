@@ -1,0 +1,15 @@
+easy_admin:      
+    design:
+        menu:
+            - label: Dictionnaire
+              icon: newspaper-o
+              children: 
+                  - { entity: Word, label:  Liste de mots }
+                  - { entity: Traduction, label: Liste de traductions }
+                  - { entity: Type, label: Types de mots, icon: inbox }
+            - label: Administration
+              icon: newspaper-o
+              children: 
+                  - { entity: User, label:  Liste des utilisateurs }
+
+

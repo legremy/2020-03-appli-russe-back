@@ -1,0 +1,9 @@
+easy_admin:
+    design:
+        brand_color: '#abc'
+        #assets:
+        #    # all kinds of assets are supported and linked accordingly
+        #    css:
+        #        - 'bundles/app/css/admin5.css'
+        #    js:
+        #        - '/bundles/user/js/admin4.js'

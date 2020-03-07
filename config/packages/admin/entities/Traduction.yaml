@@ -1,0 +1,12 @@
+easy_admin:
+    entities:
+        Traduction:
+            class: App\Entity\Traduction
+            list:
+                fields:
+                    - id
+                    - spelling 
+                    - { property: words, label: Nombre de mots }
+                actions: 
+                    - { name: "edit", label: false, icon: "pencil", css_class: "btn btn-primary" }
+                    - { name: "delete", label: false, icon: "trash", css_class: "btn btn-danger" }   

@@ -29,7 +29,7 @@ class Traduction
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\word", inversedBy="traductions")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Word", mappedBy="traductions")
      */
     private $words;
 
@@ -68,14 +68,14 @@ class Traduction
     }
 
     /**
-     * @return Collection|word[]
+     * @return Collection|Word[]
      */
     public function getWords(): Collection
     {
         return $this->words;
     }
 
-    public function addWord(word $word): self
+    public function addWord(Word $word): self
     {
         if (!$this->words->contains($word)) {
             $this->words[] = $word;
@@ -84,12 +84,17 @@ class Traduction
         return $this;
     }
 
-    public function removeWord(word $word): self
+    public function removeWord(Word $word): self
     {
         if ($this->words->contains($word)) {
             $this->words->removeElement($word);
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->spelling;
     }
 }

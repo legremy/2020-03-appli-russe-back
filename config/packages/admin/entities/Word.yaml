@@ -1,0 +1,17 @@
+easy_admin:
+    entities:
+        Word:
+            class: App\Entity\Word
+            list:
+                title: Liste des mots russes appris
+                help: Une rubrique d'aide à définir
+                filters: [ spelling, type, traductions ]
+                fields:
+                    - id
+                    - spelling 
+                    - type
+                    - { property: traductions, label: Nombre de traductions }
+                actions: 
+                    - { name: "show", label: false, icon: "eye", css_class: "btn btn-secondary" }
+                    - { name: "edit", label: false, icon: "pencil", css_class: "btn btn-primary" }
+                    - { name: "delete", label: false, icon: "trash", css_class: "btn btn-danger" }        

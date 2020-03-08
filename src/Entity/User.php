@@ -3,13 +3,19 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @ApiResource
+ * @UniqueEntity("email", message="{{ value }} semble être déjà utilisé.")
+ * @ApiResource(
+ *      normalizationContext={"groups"={"users_read"}}
+ * )
  */
 class User implements UserInterface
 {
@@ -22,6 +28,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email(message="Cette adresse e-mail ne semble pas valide.")
+     * @Assert\NotBlank(message="Une adresse e-mail valide est obligatoire.")
+     * @Groups({"users_read"})
      */
     private $email;
 
@@ -33,6 +42,8 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Le mot de passe est obligatoire")
+     * @Assert\Length(min=8, minMessage="Le mot de passe doit faire au moins {{ limit }} caractères")
      */
     private $password;
 

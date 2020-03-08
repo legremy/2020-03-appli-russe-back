@@ -1,0 +1,6 @@
+:root {
+    /* change the background color of the <body> */
+    --body-bg: #444;
+    --body-color:#fff;
+    --text-color: #fff;
+}

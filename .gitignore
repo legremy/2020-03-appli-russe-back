@@ -17,3 +17,7 @@
 
 ###> My own stuff ###
 /reference_documentation/
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###

@@ -11,15 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WordRepository")
- * @ApiResource(
- *      normalizationContext = {"groups":{"words_read"}},
- *      collectionOperations = {
- *          "POST",
- *          "GET" = {
- *              "path"="/dictionnaire"         
- *          }
- *      }
- * )
+ * @ApiResource(normalizationContext = {"groups":{"words_read"}})
  */
 class Word
 {
